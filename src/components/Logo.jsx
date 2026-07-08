@@ -1,6 +1,5 @@
 /**
- * Luxe Link wordmark — "LUXE L NK", the missing "I" is negative space,
- * matching the brand logo. Swap for the real SVG in src/assets when available.
+ * Luxe Link wordmark. Swap for the real SVG in src/assets when available.
  */
 export default function Logo({ className = "text-lg" }) {
   return (
@@ -11,10 +10,8 @@ export default function Logo({ className = "text-lg" }) {
     >
       <span aria-hidden="true">
         LUXE
-        <span className="inline-block w-[0.9em]" />
-        L
-        <span className="inline-block w-[0.72em]" />
-        NK
+        <span className="inline-block w-[0.55em]" />
+        LINK
       </span>
     </span>
   );
