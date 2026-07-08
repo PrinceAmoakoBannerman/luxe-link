@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useScrollPosition } from "../hooks/useScrollPosition";
+
+const HERO_VIDEO = "https://assets.mixkit.co/videos/35215/35215-720.mp4";
 
 const container = {
   hidden: {},
@@ -20,6 +23,10 @@ const item = {
 export default function Hero() {
   const scrollY = useScrollPosition();
   const lift = Math.min(scrollY * 0.15, 120);
+  const [videoReady, setVideoReady] = useState(false);
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   return (
     <section className="relative h-screen min-h-[640px] w-full overflow-hidden flex items-end">
@@ -37,6 +44,22 @@ export default function Hero() {
           decoding="async"
           className="w-full h-full object-cover"
         />
+        {/* video streams in over the still; the image doubles as its poster */}
+        {!prefersReducedMotion && (
+          <video
+            src={HERO_VIDEO}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            onLoadedData={() => setVideoReady(true)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${
+              videoReady ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        )}
       </div>
       <div
         className="absolute inset-0"

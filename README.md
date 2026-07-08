@@ -45,7 +45,7 @@ src/
 
 - Colors: `obsidian` #0F0F10, `accent` #FFFFFF, `ivory` #F4F4F5 — defined in `tailwind.config.js` (monochrome black & white)
 - Type: Playfair Display (`font-display`) for headlines, Inter (`font-body`) for everything else
-- Imagery: currently hotlinked from Unsplash as placeholders — swap in real photography via
+- Imagery: photos hotlinked from Unsplash, hero video from Mixkit — swap in real footage via
   `src/assets` before shipping
 
 ## Notes
